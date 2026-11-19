@@ -44,8 +44,7 @@ fun PitchChart(
             val range = (maxMidi - minMidi).coerceAtLeast(4f)
 
             fun x(ms: Long) = (ms - minMs) / (maxMs - minMs) * size.width
-            fun y(midi: Double) =
-                (size.height * (1f - ((midi - minMidi) / range).toFloat()))
+            fun y(midi: Float) = size.height * (1f - ((midi - minMidi) / range))
 
             for (i in 0..4) {
                 val yy = size.height * i / 4f
